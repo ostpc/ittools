@@ -44,13 +44,42 @@ public class AdminPanelRestController {
 
 
 
-       String testhtmlform ="\n" +
-               "  <p>"+question+"<br>" +
-               "<label> <input type=\"checkbox\" name=\"precipitation[]\" value=\""+boolansver1+"\">"+answer1+"</label><br>" +
-               "<label> <input type=\"checkbox\" name=\"precipitation[]\" value=\""+boolansver2+"\">"+answer2+"</label><br>" +
-               "<label> <input type=\"checkbox\" name=\"precipitation[]\" value=\""+boolansver3+"\">"+answer3+"</label><br>" +
-               "<label> <input type=\"checkbox\" name=\"precipitation[]\" value=\""+boolansver4+"\">"+answer4+"</label><br>" +
-               "<label> <input type=\"checkbox\" name=\"precipitation[]\" value=\""+boolansver5+"\">"+answer5+"</label><br></p>";
+        String testhtmlform ="<div >\n" +
+                "\n" +
+                "            <p>"+question+"</p><br>\n" +
+                "\n" +
+                "            <input  id =\""+answer1+"\" type=\"checkbox\" name=\"precipitation[]\" value=\""+boolansver1+"\">\n" +
+                "            <label for=\""+answer1+"\" >"+answer1+"</label>\n" +
+                "\n" +
+                "            <br>\n" +
+                "            <br>" +
+                "" +
+                " <input  id = \""+answer2+"\" type=\"checkbox\" name=\"precipitation[]\" value=\""+boolansver2+"\">\n" +
+                "            <label for=\""+answer2+"\" >"+answer2+"</label>\n" +
+                "\n" +
+                "            <br>\n" +
+                "            <br>" +
+                "" +
+                " <input  id = \""+answer3+"\" type=\"checkbox\" name=\"precipitation[]\" value=\""+boolansver3+"\">\n" +
+                "            <label for=\""+answer3+"\" >"+answer3+"</label>\n" +
+                "\n" +
+                "            <br>\n" +
+                "            <br>" +
+                "" +
+                "<input  id = \""+answer4+"\" type=\"checkbox\" name=\"precipitation[]\" value=\""+boolansver4+"\">\n" +
+                "            <label for=\""+answer4+"\" >"+answer4+"</label>\n" +
+                "\n" +
+                "            <br>\n" +
+                "            <br>" +
+                "" +
+                "<input  id = \""+answer5+"\" type=\"checkbox\" name=\"precipitation[]\" value=\""+boolansver5+"\">\n" +
+                "            <label for=\""+answer5+"\" >"+answer5+"</label>\n" +
+                "\n" +
+                "            <br>\n" +
+                "            <br> </div>\n" +
+                "\n" +
+                "        <br> " +
+                "" ;
 
 
 
@@ -59,7 +88,9 @@ public class AdminPanelRestController {
 
 
 
-                newFile(testhtmlform , namePathHTML);
+
+
+        newFile(testhtmlform , namePathHTML);
 
         return new ModelAndView("/AdminPanel");
     }
@@ -86,20 +117,25 @@ public class AdminPanelRestController {
     public ModelAndView adminh(@RequestParam("nameHTML")String nameHTML ) throws Exception {
 
 
-        String firstparthtml="<!DOCTYPE html>\n" +
-                "<html lang=\"en\">\n" +
+        String firstparthtml="<html lang=\"en\" xmlns:th=\"http://www.springframework.org/schema/data/jaxb\">\n" +
                 "<head>\n" +
                 "    <meta charset=\"UTF-8\">\n" +
                 "    <title>Title</title>\n" +
                 "\n" +
                 "\n" +
+                "    <link  rel=\"stylesheet\" th:href=\"@{/css/CSSfortest.css}\"/>\n" +
+                "    <link rel=\"stylesheet\" href=\"../../static/css/CSSadmin.css\"/>\n" +
                 "\n" +
                 "</head>\n" +
                 "<body>\n" +
                 "\n" +
                 "\n" +
-                "\n" +  "<span id=\"time\"></span>"+
-                "<form method=\"POST\" action=\"runtest\" name= \"forma\" >";
+                "\n" +
+                "<span id=\"time\"></span>\n" +
+                "\n" +
+                "<div id=\"centr\">\n" +
+                "\n" +
+                "    <form method=\"POST\" action=\"runtest\" name= \"forma\" >";
 
         newFile(firstparthtml , nameHTML);
 
@@ -113,62 +149,74 @@ public class AdminPanelRestController {
 
 
 
-        String lastparthtml="  <p>\n" +
+        String lastparthtml="     <div>\n" +
+                "\n" +
+                "            <p>\n" +
+                "\n" +
+                "                <input type=\"button\" class=\"bttn\" value=\"Send to check\" onClick = \"checkForm()\">\n" +
+                "\n" +
+                "                <input type=\"reset\" class=\"bttn\" value=\"Reset\">\n" +
+                "            </p>\n" +
                 "\n" +
                 "\n" +
-                "    <input type=\"button\"  value=\"Подсчитать результаты\" onClick = \"checkForm()\">\n" +
-                "    <input type=\"reset\" value=\"Сброс\">\n" +
-                "  </p>\n" +
-                "    Итого баллов: <input type=\"text\" name=\"testresultstr\" readonly>\n" +
-                "    <input hidden type=\"text\" name=\"testresult\">" +
-                "</form>\n" +
-                "  \n" +
-                "    \n" +
+                "        </div>     <div>\n" +
+                "            <p id=\"namepath1\">Success:</p>\n" +
+                "\n" +
+                "            <input id=\"namepath\" type=\"text\" name=\"testresultstr\" readonly>\n" +
+                "\n" +
+                "            <input  hidden type=\"text\" name=\"testresult\">\n" +
+                "\n" +
+                "        </div>\n" +
+                "\n" +
+                "    </form>\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "</div>\n" +
                 "<script>\n" +
                 "    function checkForm()\n" +
                 "    {\n" +
                 "        setTimeout('document.forma.submit()',300); //задерка\n" +
                 "\n" +
                 "\n" +
-                "    var myform = this.forma,\n" +
-                "        chbx = myform['precipitation[]'],\n" +
-                "        b=0,\n" +
-                "\t\ta=0;\n" +
-                "\t\tvar d = 0 ;\n" +
-                "    for(var i = 0; i < chbx.length; i++)\n" +
-                "\t{\n" +
-                "            \n" +
+                "        var myform = this.forma,\n" +
+                "            chbx = myform['precipitation[]'],\n" +
+                "            b=0,\n" +
+                "            a=0;\n" +
+                "        var d = 0 ;\n" +
+                "        for(var i = 0; i < chbx.length; i++)\n" +
+                "        {\n" +
                 "\n" +
-                "\t\t\tif(chbx[i].value==\"true\")\n" +
-                "\t\t\t{\n" +
-                "\t\t\t\n" +
-                "\t\t\ta+=1\n" +
                 "\n" +
-                "\t\t\t if(chbx[i].checked) \n" +
-                "\t\t\t\t{\n" +
+                "            if(chbx[i].value==\"true\")\n" +
+                "            {\n" +
                 "\n" +
-                "\t\t\t\t\tb+=1 \n" +
-                "\t\t\t\n" +
-                "\t\t\t\t}\n" +
-                "\t\t\t\n" +
-                "\t\t\t}\n" +
-                "\t\t\tif(chbx[i].value==\"false\")\n" +
-                "\t\t\t{\n" +
-                "\t\t\tif(chbx[i].checked) \n" +
-                "\t\t\t\t{\n" +
-                "\t\t\t\n" +
-                "\t\t\td+=0.25;\n" +
-                "\t\t\t}\n" +
-                "\t\t\t\n" +
-                "\t\t\t}\n" +
-                "    }\n" +
-                "\t\n" +
-                "\tvar c = ((b-d)*100)/a;\n" +
-                "\t\n" +
-                "\t\n" +
-                "    myform.testresultstr.value = c+\"%\";\n" +
-                "    myform.testresult.value = parseInt(c)/100;}"+
+                "                a+=1\n" +
                 "\n" +
+                "                if(chbx[i].checked)\n" +
+                "                {\n" +
+                "\n" +
+                "                    b+=1\n" +
+                "\n" +
+                "                }\n" +
+                "\n" +
+                "            }\n" +
+                "            if(chbx[i].value==\"false\")\n" +
+                "            {\n" +
+                "                if(chbx[i].checked)\n" +
+                "                {\n" +
+                "\n" +
+                "                    d+=0.25;\n" +
+                "                }\n" +
+                "\n" +
+                "            }\n" +
+                "        }\n" +
+                "\n" +
+                "        var c = ((b-d)*100)/a;\n" +
+                "\n" +
+                "\n" +
+                "        myform.testresultstr.value = c+\"%\";\n" +
+                "        myform.testresult.value = parseInt(c)/100;}\n" +
                 "\n" +
                 "    function startTimer(duration, display) {\n" +
                 "        var timer = duration, minutes, seconds;\n" +
@@ -192,16 +240,16 @@ public class AdminPanelRestController {
                 "    }\n" +
                 "\n" +
                 "    window.onload = function () {\n" +
-                "        var fiveMinutes = 60 * Number("+timeHTML+"),\n" +
+                "        var fiveMinutes = 60 *Number("+timeHTML+"),\n"+
                 "            display = document.querySelector('#time');\n" +
                 "        startTimer(fiveMinutes, display);\n" +
                 "    };\n" +
                 "</script>\n" +
-                "    </body>\n" +
+                "</body>\n" +
                 "</html>";
 
 
-            saveHTMLtoDb(nameHTMLEND);      //TEST сохраняется в базу данных
+        saveHTMLtoDb(nameHTMLEND);      //TEST сохраняется в базу данных
 
         newFile(lastparthtml , nameHTMLEND);
 
