@@ -13,7 +13,7 @@ import java.io.OutputStream;
 
 @Controller
 public class FileUploadController {
-    @GetMapping(value = "/uploading")
+    @GetMapping(value = "uploading")
     public String displayForm() {
 
         return "fileUploadForm";

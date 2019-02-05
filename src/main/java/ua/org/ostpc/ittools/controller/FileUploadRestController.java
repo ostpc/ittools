@@ -20,7 +20,7 @@ public class FileUploadRestController {
     public String upload(@RequestParam("file") MultipartFile file, HttpServletRequest request){
         try{
             String fileName=file.getOriginalFilename();
-            String path= request.getServletContext().getRealPath("") + UPLOAD_DIR + "" + File.separator + fileName;
+            String path= "C:\\Users\\Pinky\\IdeaProjects\\ittools\\src\\main\\resources\\static\\resumes" + UPLOAD_DIR + "" + File.separator + fileName;    //Change depends of Sysytem
             saveFile(file.getInputStream(), path);
             return (path);
         }
