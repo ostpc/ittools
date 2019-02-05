@@ -27,6 +27,8 @@ public class Form {
     @Column(nullable = false)
     private String formPath;
 
+    @Column(nullable = false)
+    private String speciality;
     //Getters an setters
 
 
@@ -84,5 +86,13 @@ public class Form {
 
     public void setFormPath(String formPath) {
         this.formPath = formPath;
+    }
+
+    public String getSpeciality() {
+        return speciality;
+    }
+
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
     }
 }
