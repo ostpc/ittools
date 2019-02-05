@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<html xmlns:form="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>File Upload Example</title>
@@ -8,9 +7,16 @@
 
 <body>
 
+<form method="POST" action="uploading" enctype="multipart/form-data">
+    File to upload: <input type="file" name="file"><br>
+    <input type="submit" value="Upload">
+</form>
+
+
+<!--
 <h3>Enter The File to Upload (Single file)</h3>
 
-<form:form method="POST" action="/spring-mvc-java/uploadFile" enctype="multipart/form-data">
+<form method="POST" action="/spring-mvc-java/uploadFile" enctype="multipart/form-data">
 
     <table>
         <tr>
@@ -22,13 +28,13 @@
         </tr>
     </table>
 
-</form:form>
+</form>
 
 <br />
 
 <h3>Enter The Files to Upload (Multiple files)</h3>
 
-<form:form method="POST" action="/spring-mvc-java/uploadMultiFile" enctype="multipart/form-data">
+<form method="POST" action="/spring-mvc-java/uploadMultiFile" enctype="multipart/form-data">
 
     <table>
         <tr>
@@ -48,13 +54,13 @@
         </tr>
     </table>
 
-</form:form>
+</form>
 
 <br />
 
 <h3>Fill the Form and Select a File (<code>@RequestParam</code>)</h3>
 
-<form:form method="POST" action="/spring-mvc-java/uploadFileWithAddtionalData" enctype="multipart/form-data">
+<form method="POST" action="/spring-mvc-java/uploadFileWithAddtionalData" enctype="multipart/form-data">
 
     <table>
         <tr>
@@ -74,13 +80,13 @@
         </tr>
     </table>
 
-</form:form>
+</form>
 
 <br />
 
 <h3>Fill the Form and Select a File (<code>@ModelAttribute</code>)</h3>
 
-<form:form method="POST" action="/spring-mvc-java/uploadFileModelAttribute" enctype="multipart/form-data">
+<form method="POST" action="/spring-mvc-java/uploadFileModelAttribute" enctype="multipart/form-data">
 
     <table>
         <tr>
@@ -100,8 +106,8 @@
         </tr>
     </table>
 
-</form:form>
-
+</form>
+-->
 </body>
 
 </html>
