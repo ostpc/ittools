@@ -12,12 +12,12 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 @RestController
-public class FileUploadRestController {
+public class FormRestController {
 
     private static String UPLOAD_DIR="";
 
-    @RequestMapping(value="/uploading", method= RequestMethod.POST)
-    public String upload(@RequestParam("file") MultipartFile file, HttpServletRequest request){
+    @RequestMapping(value="/form", method= RequestMethod.POST)
+    public String upload(@RequestParam("file") MultipartFile file, @RequestParam("fname") String fname, @RequestParam("sname") String sname, @RequestParam("mobilePhone") String mobilePhone, @RequestParam("email") String email, HttpServletRequest request){
         try{
             String fileName=file.getOriginalFilename();
             String path= "C:\\Users\\Pinky\\IdeaProjects\\ittools\\src\\main\\resources\\static\\resumes" + UPLOAD_DIR + "" + File.separator + fileName;    //Change depends of Sysytem

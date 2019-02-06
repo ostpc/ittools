@@ -15,10 +15,14 @@ public class EntryRestController {
     public ModelAndView upload(@RequestParam("speciality") String speciality){
         ModelAndView mav=new ModelAndView();
         if(speciality.equals("Java developer")){
-            mav.setViewName("redirect:/");    //Добавить атрибут теста
+            String testForJava="a";
+            mav.addObject("test", testForJava);
+            mav.setViewName("redirect:/form");    //Добавить атрибут теста
         }
         else if(speciality.equals("C++ developer")){
-            mav.setViewName("redirect:/");    //Добавить атрибут теста
+            String testForCpp="b";
+            mav.addObject("test", testForCpp);
+            mav.setViewName("redirect:/form");    //Добавить атрибут теста
         }
         return mav;
     }

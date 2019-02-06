@@ -1,72 +1,59 @@
 package ua.org.ostpc.ittools.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import ua.org.ostpc.ittools.dao.FormRepository;
-import ua.org.ostpc.ittools.entity.Book;
-import ua.org.ostpc.ittools.entity.Form;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 
-@RestController
-@RequestMapping("/api/form")
+@Controller
 public class FormController {
+    @GetMapping(value = "/form")
+    public String displayForm() {
 
-    @Autowired
-    private FormRepository formRepository;
-
-    @GetMapping
-    public Iterable findAll() {
-        return formRepository.findAll();
-    }
-
-    @GetMapping("/find/{name}")
-    public List findByName(@PathVariable String name) {
-        return formRepository.findByName(name);
-    }
-
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Form create(@RequestBody Form form) {
-        return formRepository.save(form);
-    }
-
-    @GetMapping("/{id}")
-    public Form findOne(@PathVariable Long id) throws Exception {
-        return formRepository.findById(id)
-                .orElseThrow(Exception::new);
-    }
-
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) throws Exception {
-        formRepository.findById(id)
-                .orElseThrow(Exception::new);
-        formRepository.deleteById(id);
-    }
-
-    @PutMapping("/{id}")
-    public Form updateForm(@RequestBody Form form, @PathVariable Long id) throws Exception {
-        if (form.getId() != id) {
-            throw new Exception();
-        }
-        formRepository.findById(id)
-                .orElseThrow(Exception::new);
-        return formRepository.save(form);
-    }
-
-    @GetMapping("/create/{name}/{mobilePhone}/{email}/{level}/{resumePath}/{formPath}")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Form createDefault(@PathVariable String name, @PathVariable String mobilePhone, @PathVariable String email, @PathVariable String resumePath, @PathVariable String formPath, @PathVariable int level){
-
-        Form form=new Form();
-        form.setName(name);
-        form.setEmail(email);
-        form.setFormPath(formPath);
-        form.setMobilePhone(mobilePhone);
-        form.setResumePath(resumePath);
-        form.setLevel(level);
-
-        return formRepository.save(form);
+        return "form";
     }
 }
+
+
+//    @RequestMapping(value = "/uploading", method = RequestMethod.GET)     it shouldn't be in the rest controller
+//    public String displayForm() {
+//
+//        return "fileUploadForm";
+//    }
+
+
+//    @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+//    public String submit(@RequestParam("file") final MultipartFile file, final ModelMap modelMap) {
+//
+//        modelMap.addAttribute("file", file);
+//        return "fileUploadView";
+//    }
+//
+//    @RequestMapping(value = "/uploadMultiFile", method = RequestMethod.POST)
+//    public String submit(@RequestParam("files") final MultipartFile[] files, final ModelMap modelMap) {
+//
+//        modelMap.addAttribute("files", files);
+//        return "fileUploadView";
+//    }
+//
+//    @RequestMapping(value = "/uploadFileWithAddtionalData", method = RequestMethod.POST)
+//    public String submit(@RequestParam final MultipartFile file, @RequestParam final String name, @RequestParam final String email, final ModelMap modelMap) {
+//
+//        modelMap.addAttribute("name", name);
+//        modelMap.addAttribute("email", email);
+//        modelMap.addAttribute("file", file);
+//        return "fileUploadView";
+//    }
+
+//    @RequestMapping(value = "/uploadFileModelAttribute", method = RequestMethod.POST)
+//    public String submit(@ModelAttribute final FormDataWithFile formDataWithFile, final ModelMap modelMap) {
+//
+//        modelMap.addAttribute("formDataWithFile", formDataWithFile);
+//        return "fileUploadView";
+//    }
