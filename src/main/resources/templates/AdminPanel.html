@@ -1,0 +1,152 @@
+
+<head>
+    <title>Adminpanel</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+</head>
+
+    <h1>ADMIN Panel</h1>
+    <div>
+        <h3>Here you can create new test</h3>
+
+    </div>
+
+    <form method="POST" action="adminpanel" >
+
+
+        <tr>
+            <td><b>namePathHTML</b></td>
+
+                <td><input type="text" name="namePathHTML" id="namePathHTML"  /></input>  </td>
+
+        </tr>
+
+
+
+        <tr>
+            <td><b>Question</b></td>
+            <td>
+
+                    <textarea name="question"></textarea>
+
+            </td>
+        </tr>
+
+
+        <tr>
+            <p>
+                <b>Answer</b>
+            </p>
+            <p>
+
+                <textarea name="answer1"></textarea>
+
+            </p>
+            <br/>
+
+
+                <select name="boolansver1">
+                    <option value="true">true</option>
+                    <option selected="selected" value="false">false</option>
+                </select>
+
+
+        </tr>
+
+        <tr>
+
+            <p><b>Answer</b></p>
+            <p>
+
+                <textarea name="answer2"></textarea>
+
+            </p>
+            <br/>
+
+                <select name="boolansver2">
+                    <option value="true">true</option>
+                    <option selected="selected" value="false">false</option>
+                </select>
+
+
+        </tr>
+
+
+        <tr>
+
+            <p><b>Answer</b></p>
+            <p>
+
+                <textarea name="answer3"></textarea>
+
+            </p>
+            <br/>
+
+                <select name="boolansver3">
+                    <option value="true">true</option>
+                    <option selected="selected" value="false">false</option>
+                </select>
+
+
+        </tr>
+
+
+        <tr>
+
+            <p><b>Answer</b></p>
+            <p>
+
+                <textarea name="answer4"></textarea>
+
+            </p>
+            <br/>
+
+                <select name="boolansver4">
+                    <option value="true">true</option>
+                    <option selected="selected" value="false">false</option>
+                </select>
+
+
+        </tr>
+        <tr>
+
+            <p><b>Answer</b></p>
+            <p>
+
+                <textarea name="answer5"></textarea>
+
+            </p>
+            <br/>
+
+                <select name="boolansver5">
+                    <option  value="true">true</option>
+                    <option selected="selected" value="false">false</option>
+                </select>
+
+
+        </tr>
+
+
+
+        <tr>
+            <input   type="submit" value="Create question" onclick="submitForm()"/></td>
+            <td></td>
+        </tr>
+
+
+
+    </form>
+
+
+
+
+<script>
+    function submitForm() {
+        document.adminpanel.submit();
+        document.adminpanel.reset();
+    }
+</script>
+
+
+</html>
