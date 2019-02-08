@@ -45,7 +45,7 @@ public class AdminPanelRestController {
     }
 
     public static void newFile(String str, String pathname) throws Exception {
-        FileWriter nFile = new FileWriter(new File("src/main/resources/TEXT_TXT").getAbsolutePath()+"//"+pathname+".html"+"//",true);
+        FileWriter nFile = new FileWriter(new File("src/main/resources/templates/TEXT_TXT").getAbsolutePath()+"//"+pathname+".html"+"//",true);
 
 
         nFile.write(str);
@@ -63,15 +63,15 @@ public class AdminPanelRestController {
                 "<head>\n" +
                 "    <meta charset=\"UTF-8\">\n" +
                 "    <title>Title</title>\n" +
-                "\t<script src=\"/my/script.js\"></script>\n" +
+                "\n" +
                 "\n" +
                 "\n" +
                 "</head>\n" +
                 "<body>\n" +
                 "\n" +
                 "\n" +
-                "\n" +
-                "<form>";
+                "\n" +  "<span id=\"time\"></span>"+
+                "<form method=\"POST\" action=\"runtest\" name= \"forma\" >";
 
         newFile(firstparthtml , nameHTML);
 
@@ -81,39 +81,84 @@ public class AdminPanelRestController {
 
 
     @RequestMapping(value="lastparthtml", method= RequestMethod.POST)
-    public static ModelAndView adminom(@RequestParam("nameHTML")String nameHTMLEND ) throws Exception {
+    public static ModelAndView adminom(@RequestParam("nameHTML")String nameHTMLEND, @RequestParam("timeHTML")String timeHTML) throws Exception {
 
 
 
-        String lastparthtml=" <p>\n" +
-                "    <input type=\"button\" id=\"calc\" value=\"Подсчитать результаты\">\n" +
+        String lastparthtml="  <p>\n" +
+                "\n" +
+                "\n" +
+                "    <input type=\"button\"  value=\"Подсчитать результаты\" onClick = \"checkForm()\">\n" +
                 "    <input type=\"reset\" value=\"Сброс\">\n" +
                 "  </p>\n" +
-                "    Итого баллов: <input type=\"text\" name=\"result\" readonly>\n" +
+                "    Итого баллов: <input type=\"text\" name=\"testresult\" readonly>\n" +
                 "</form>\n" +
                 "  \n" +
                 "    \n" +
                 "<script>\n" +
-                "calc.onclick = function(){\n" +
-                "    var myform = this.form,\n" +
+                "    function checkForm()\n" +
+                "    {\n" +
+                "        setTimeout('document.forma.submit()',300); //задерка\n" +
+                "\n" +
+                "\n" +
+                "    var myform = this.forma,\n" +
                 "        chbx = myform['precipitation[]'],\n" +
-                "        res=0;\n" +
-                "    for(var i = 0; i < chbx.length; i++){\n" +
-                "        if(chbx[i].checked) {\n" +
+                "        b=0,\n" +
+                "\t\ta=0;\n" +
+                "    for(var i = 0; i < chbx.length; i++)\n" +
+                "\t{\n" +
                 "            \n" +
                 "\n" +
-                "\t\t\tif(chbx[i].value==\"true\"){  res+=1 };\n" +
+                "\t\t\tif(chbx[i].value==\"true\")\n" +
+                "\t\t\t{\n" +
                 "\t\t\t\n" +
-                "        }\n" +
+                "\t\t\ta+=1\n" +
+                "\n" +
+                "\t\t\t if(chbx[i].checked) \n" +
+                "\t\t\t\t{\n" +
+                "\n" +
+                "\t\t\t\t\tb+=1 \n" +
+                "\t\t\t\n" +
+                "\t\t\t\t}\n" +
+                "\t\t\t\n" +
+                "\t\t\t}\n" +
                 "    }\n" +
                 "\t\n" +
+                "\tvar c = (b*100)/a;\n" +
                 "\t\n" +
-                "    myform.result.value = res;\n" +
+                "\t\n" +
+                "    myform.testresult.value = parseInt(c)+\"%\";\n" +
                 "}\n" +
                 "\n" +
-                "   </script>\n" +
                 "\n" +
-                "</body>\n" +
+                "    function startTimer(duration, display) {\n" +
+                "        var timer = duration, minutes, seconds;\n" +
+                "        setInterval(function () {\n" +
+                "            minutes = parseInt(timer / 60, 10)\n" +
+                "            seconds = parseInt(timer % 60, 10);\n" +
+                "\n" +
+                "            minutes = minutes < 10 ? \"0\" + minutes : minutes;\n" +
+                "            seconds = seconds < 10 ? \"0\" + seconds : seconds;\n" +
+                "\n" +
+                "            display.textContent = minutes + \":\" + seconds;\n" +
+                "\n" +
+                "            if (--timer == 0) {\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "                checkForm();\n" +
+                "\n" +
+                "            }\n" +
+                "        }, 1000);\n" +
+                "    }\n" +
+                "\n" +
+                "    window.onload = function () {\n" +
+                "        var fiveMinutes = 60 * Number("+timeHTML+"),\n" +
+                "            display = document.querySelector('#time');\n" +
+                "        startTimer(fiveMinutes, display);\n" +
+                "    };\n" +
+                "</script>\n" +
+                "    </body>\n" +
                 "</html>";
 
         newFile(lastparthtml , nameHTMLEND);
