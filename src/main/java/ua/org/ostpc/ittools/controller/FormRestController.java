@@ -1,12 +1,15 @@
 package ua.org.ostpc.ittools.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+import sun.net.www.http.HttpCapture;
+import ua.org.ostpc.ittools.dao.FormRepository;
+import ua.org.ostpc.ittools.entity.Form;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -15,19 +18,50 @@ import java.io.OutputStream;
 public class FormRestController {
 
     private static String UPLOAD_DIR="";
+    @Autowired
+    private FormRepository formRepository;
 
-    @RequestMapping(value="/form", method= RequestMethod.POST)
-    public String upload(@RequestParam("file") MultipartFile file, @RequestParam("fname") String fname, @RequestParam("sname") String sname, @RequestParam("mobilePhone") String mobilePhone, @RequestParam("email") String email, HttpServletRequest request){
+    @RequestMapping(value="form", method= RequestMethod.POST)
+    public ModelAndView upload(HttpSession session, @RequestParam("file") MultipartFile file, @RequestParam("fname") String fname, @RequestParam("sname") String sname, @RequestParam("mobilePhone") String mobilePhone, @RequestParam("email") String email, HttpServletRequest request){
         try{
             String fileName=file.getOriginalFilename();
-            String path= "C:\\Users\\Pinky\\IdeaProjects\\ittools\\src\\main\\resources\\static\\resumes" + UPLOAD_DIR + "" + File.separator + fileName;    //Change depends of Sysytem
+            String path= "C:\\Users\\Pinky\\IdeaProjects\\ittools\\src\\main\\resources\\static\\resumes" + UPLOAD_DIR + "" + File.separator + fileName;    //Change depends of System
             saveFile(file.getInputStream(), path);
-            return (path);
+
+            ModelAndView testMav= new ModelAndView();
+
+            Form formToBD=new Form();
+            if(!(fname.equals("") && sname.equals("") && mobilePhone.equals("") && fileName.equals("") && email.equals(""))) {
+                formToBD.setResumePath(path);
+                formToBD.setName(fname + sname);
+                formToBD.setEmail(email);
+                formToBD.setLevel(0);
+                formToBD.setMobilePhone(mobilePhone);
+                formToBD.setSpeciality(session.getAttribute("speciality").toString());     //suka blyad' da kak tebya poluchit' to pidorasa ti kusok
+
+
+
+                formRepository.save(formToBD);
+
+                testMav.setViewName("successFormStage");    //redirect:test !!!!!!!!!!!!!!!!!!!!!!!!!!
+            }
+            else{
+                testMav.setViewName("failureFormStage");    //ajax feature is welcome
+            }
+
+            return testMav;
         }
         catch(Exception e){
-            return e.getMessage();
+            e.printStackTrace();
         }
+        return new ModelAndView("error");
+
     }
+
+
+
+
+
     private void saveFile(InputStream inputStream, String path){
 
         try{

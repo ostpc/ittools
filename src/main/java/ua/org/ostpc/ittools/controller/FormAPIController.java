@@ -55,16 +55,16 @@ public class FormAPIController {
         return formRepository.save(form);
     }
 
-    @GetMapping("/create/{name}/{mobilePhone}/{email}/{level}/{resumePath}/{formPath}")
+    @GetMapping("/create/{name}/{mobilePhone}/{email}/{level}/{resumePath}/{speciality}")
     @ResponseStatus(HttpStatus.CREATED)
-    public Form createDefault(@PathVariable String name, @PathVariable String mobilePhone, @PathVariable String email, @PathVariable String resumePath, @PathVariable String formPath, @PathVariable int level){
+    public Form createDefault(@PathVariable String name, @PathVariable String mobilePhone, @PathVariable String email, @PathVariable String resumePath, @PathVariable String speciality, @PathVariable int level){
 
         Form form=new Form();
         form.setName(name);
         form.setEmail(email);
-        form.setFormPath(formPath);
         form.setMobilePhone(mobilePhone);
         form.setResumePath(resumePath);
+        form.setSpeciality(speciality);
         form.setLevel(level);
 
         return formRepository.save(form);

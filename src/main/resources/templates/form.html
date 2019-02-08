@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>Form</title>
 </head>
-<body>
-<form method="POST" action="uploading" enctype="multipart/form-data">
-    <h2>Speciality:  <b th:text="${param.speciality}"></b><!-- Input param speciality. Get from entry page--></h2><br>
+<body type="text" name="body">
+<form method="POST" action="form" enctype="multipart/form-data">
+    <h2>Speciality:  <b th:text="${session.speciality}"></b><!-- Input param speciality. Get from entry page--></h2><br>
+    <input hidden name="speciality" type ="text" th:text="${session.speciality}">
     Put your name here:<input type="text" name="fname"><br>
     Put your surname here:<input type="text" name="sname"><br>
     Mobile phone:<input type="text" name="mobilePhone"><br>
@@ -15,9 +16,7 @@
     <br>
     Now you should answer on a several questions.<br>
     Small test: <!--Input param test(html code) -->
-    <br>
-    ${speciality}
-    <input type="submit" value="Upload form"><br>
+    <input type="submit" value="Begin test"><br>
 </form>
 </body>
 </html>
