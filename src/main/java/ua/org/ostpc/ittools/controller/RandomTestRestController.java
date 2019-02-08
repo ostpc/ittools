@@ -30,7 +30,7 @@ public class RandomTestRestController {
         nFile.close();
 
 
-        return  new ModelAndView("TEXT_TXT/Test1");
+        return  new ModelAndView("FinalPageAfterTest");
     }
 
 

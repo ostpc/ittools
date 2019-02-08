@@ -70,7 +70,7 @@ public class AdminPanelRestController {
                 "<body>\n" +
                 "\n" +
                 "\n" +
-                "\n" +
+                "\n" +  "<span id=\"time\"></span>"+
                 "<form method=\"POST\" action=\"runtest\" name= \"forma\" >";
 
         newFile(firstparthtml , nameHTML);
@@ -81,7 +81,7 @@ public class AdminPanelRestController {
 
 
     @RequestMapping(value="lastparthtml", method= RequestMethod.POST)
-    public static ModelAndView adminom(@RequestParam("nameHTML")String nameHTMLEND ) throws Exception {
+    public static ModelAndView adminom(@RequestParam("nameHTML")String nameHTMLEND, @RequestParam("timeHTML")String timeHTML) throws Exception {
 
 
 
@@ -98,7 +98,7 @@ public class AdminPanelRestController {
                 "<script>\n" +
                 "    function checkForm()\n" +
                 "    {\n" +
-                "        setTimeout('document.forma.submit()',3000); //задерка\n" +
+                "        setTimeout('document.forma.submit()',300); //задерка\n" +
                 "\n" +
                 "\n" +
                 "    var myform = this.forma,\n" +
@@ -130,9 +130,35 @@ public class AdminPanelRestController {
                 "    myform.testresult.value = parseInt(c)+\"%\";\n" +
                 "}\n" +
                 "\n" +
-                "   </script>\n" +
                 "\n" +
-                "</body>\n" +
+                "    function startTimer(duration, display) {\n" +
+                "        var timer = duration, minutes, seconds;\n" +
+                "        setInterval(function () {\n" +
+                "            minutes = parseInt(timer / 60, 10)\n" +
+                "            seconds = parseInt(timer % 60, 10);\n" +
+                "\n" +
+                "            minutes = minutes < 10 ? \"0\" + minutes : minutes;\n" +
+                "            seconds = seconds < 10 ? \"0\" + seconds : seconds;\n" +
+                "\n" +
+                "            display.textContent = minutes + \":\" + seconds;\n" +
+                "\n" +
+                "            if (--timer == 0) {\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "                checkForm();\n" +
+                "\n" +
+                "            }\n" +
+                "        }, 1000);\n" +
+                "    }\n" +
+                "\n" +
+                "    window.onload = function () {\n" +
+                "        var fiveMinutes = 60 * Number("+timeHTML+"),\n" +
+                "            display = document.querySelector('#time');\n" +
+                "        startTimer(fiveMinutes, display);\n" +
+                "    };\n" +
+                "</script>\n" +
+                "    </body>\n" +
                 "</html>";
 
         newFile(lastparthtml , nameHTMLEND);
