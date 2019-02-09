@@ -1,6 +1,7 @@
 package ua.org.ostpc.ittools.controller;
 
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,26 +20,22 @@ public class RandomTestRestController extends Form {
     @Autowired
     FormRepository formRepository;
 
-
     @RequestMapping(value = "runtest", method = RequestMethod.POST)
     private ModelAndView runtest(@RequestParam("testresult") String testresult, HttpSession session) throws Exception {
 
 
 
-        Form form=new Form();
-    if(Integer.valueOf(testresult)>90){
+        if(Double.parseDouble(testresult) >=0.5) {
+            Long longId;
+            longId = (long) session.getAttribute("id");
+            formRepository.setLevelForForm(1, (long) session.getAttribute("id"));
 
-        form.setLevel(1);
-
+            return new ModelAndView("FinalPageAfterTest");
+        }
+        else{
+            return new ModelAndView("FinalPageAfterTest");
+        }
     }
-
-    else {       form.setLevel(1);      }
-
-        formRepository.save(form);
-
-        return new ModelAndView("FinalPageAfterTest");
-    }
-
 }
 
 

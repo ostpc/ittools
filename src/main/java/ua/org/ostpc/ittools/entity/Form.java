@@ -1,8 +1,11 @@
 package ua.org.ostpc.ittools.entity;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.*;
 
 @Entity
+@DynamicUpdate
 public class Form {
 
     @Id

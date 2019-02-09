@@ -43,7 +43,9 @@ public class FormRestController {
 
                 formRepository.save(formToBD);
 
-                testMav.setViewName("redirect:/testing");    //redirect:test !!!!!!!!!!!!!!!!!!!!!!!!!!
+                session.setAttribute("id", formToBD.getId());   //id in session
+
+                testMav.setViewName("redirect:/testing");    //redirect:test !!!
             }
             else{
                 testMav.setViewName("failureFormStage");    //ajax feature is welcome

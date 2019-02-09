@@ -119,7 +119,8 @@ public class AdminPanelRestController {
                 "    <input type=\"button\"  value=\"Подсчитать результаты\" onClick = \"checkForm()\">\n" +
                 "    <input type=\"reset\" value=\"Сброс\">\n" +
                 "  </p>\n" +
-                "    Итого баллов: <input type=\"text\" name=\"testresult\" readonly>\n" +
+                "    Итого баллов: <input type=\"text\" name=\"testresultstr\" readonly>\n" +
+                "    <input hidden type=\"text\" name=\"testresult\">" +
                 "</form>\n" +
                 "  \n" +
                 "    \n" +
@@ -155,7 +156,8 @@ public class AdminPanelRestController {
                 "\tvar c = (b*100)/a;\n" +
                 "\t\n" +
                 "\t\n" +
-                "    myform.testresult.value = parseInt(c);\n" +
+                "    myform.testresultstr.value = c+\"%\";\n" +
+                "    myform.testresult.value = parseInt(c)/100;" +
                 "}\n" +
                 "\n" +
                 "\n" +
