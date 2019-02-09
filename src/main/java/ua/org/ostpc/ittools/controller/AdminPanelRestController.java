@@ -10,6 +10,7 @@ import ua.org.ostpc.ittools.dao.HTMLTestRepository;
 import ua.org.ostpc.ittools.entity.HTMLTest;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 
 
@@ -28,7 +29,7 @@ public class AdminPanelRestController {
 
         HTMLTest newTest=new HTMLTest();
         newTest.setType(fileName.substring(0,fileName.lastIndexOf('t')-3).toLowerCase());
-        newTest.setPath(absolutePath);
+        newTest.setPath("TEXT_TXT/"+insideHTMLpath+".html");
         HTMLTestRepository.save(newTest);
 
     }  //Save to DB part end
@@ -64,12 +65,20 @@ public class AdminPanelRestController {
     }
 
     private void newFile(String str, String pathname) throws Exception {        //public --> private
-        FileWriter nFile = new FileWriter(new File("src/main/resources/templates/TEXT_TXT").getAbsolutePath()+"//"+pathname+".html"+"//",true);
 
-
-        nFile.write(str);
-
-        nFile.close();
+        File file=new File((new File("src/main/resources/templates/TEXT_TXT").getAbsolutePath() + "\\" + pathname + ".html"));
+        try {
+            FileWriter nFile = new FileWriter(file, true);
+            nFile.write(str);
+            nFile.close();
+        }
+        catch(FileNotFoundException e){
+            file.getParentFile().mkdirs();
+            file.createNewFile();
+            FileWriter nFile = new FileWriter(file, true);
+            nFile.write(str);
+            nFile.close();
+        }
     }
 
 
