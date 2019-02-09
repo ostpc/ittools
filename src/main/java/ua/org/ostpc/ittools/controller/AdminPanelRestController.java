@@ -155,7 +155,7 @@ public class AdminPanelRestController {
                 "\tvar c = (b*100)/a;\n" +
                 "\t\n" +
                 "\t\n" +
-                "    myform.testresult.value = parseInt(c)+\"%\";\n" +
+                "    myform.testresult.value = parseInt(c);\n" +
                 "}\n" +
                 "\n" +
                 "\n" +

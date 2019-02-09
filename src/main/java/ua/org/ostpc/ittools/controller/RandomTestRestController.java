@@ -1,37 +1,45 @@
 package ua.org.ostpc.ittools.controller;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import ua.org.ostpc.ittools.dao.FormRepository;
+import ua.org.ostpc.ittools.entity.Form;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import javax.servlet.http.HttpSession;
+
 
 @Controller
-public class RandomTestRestController {
+public class RandomTestRestController extends Form {
 
-    @RequestMapping(value="runtest", method= RequestMethod.POST)
-    public static ModelAndView runtest(@RequestParam ("testresult") String  testresult) throws Exception
-    {
-        FileWriter nFile = null;
-        try {
-            nFile = new FileWriter(new File("src/main/resources/templates/TEXT_TXT").getAbsolutePath()+"//tttt.txt//",true);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    @Autowired
+    FormRepository formRepository;
 
 
-        nFile.write(testresult);
+    @RequestMapping(value = "runtest", method = RequestMethod.POST)
+    private ModelAndView runtest(@RequestParam("testresult") String testresult, HttpSession session) throws Exception {
 
-        nFile.close();
 
 
-        return  new ModelAndView("FinalPageAfterTest");
+        Form form=new Form();
+    if(Integer.valueOf(testresult)>90){
+
+        form.setLevel(1);
+
     }
 
+    else {       form.setLevel(1);      }
+
+        formRepository.save(form);
+
+        return new ModelAndView("FinalPageAfterTest");
+    }
 
 }
+
+
+

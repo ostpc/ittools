@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 import ua.org.ostpc.ittools.dao.HTMLTestRepository;
 import ua.org.ostpc.ittools.entity.HTMLTest;
 
@@ -19,18 +20,26 @@ public class RandomTestController {
     HTMLTestRepository htmlTestRepository;
 
     @GetMapping(value = "/testing")
-    public String displayForm(HttpSession session) {
+    public ModelAndView displayForm(HttpSession session) {
 
 
-        String testTemplate=session.getAttribute("speciality").toString().toLowerCase();
-        testTemplate=testTemplate.substring(0,testTemplate.indexOf(' '));
+        String viewPath="Не найдено!";
 
-        List<HTMLTest> tests= htmlTestRepository.findByType(testTemplate);
-        Random randomGenerator=new Random();
-        int index = randomGenerator.nextInt(tests.size());
-        HTMLTest test = tests.get(index);
-        String viewPath=test.getPath();
-        return viewPath;
+
+        String testTemplate = (String) session.getAttribute("speciality");//.toString().toLowerCase();
+        if (testTemplate!=null) {
+
+
+            testTemplate = testTemplate.toLowerCase().substring(0, testTemplate.indexOf(' '));
+
+            List<HTMLTest> tests = htmlTestRepository.findByType(testTemplate);
+            Random randomGenerator = new Random();
+            int index = randomGenerator.nextInt(tests.size());
+            HTMLTest test = tests.get(index);
+            viewPath=test.getPath();
+
+        }
+        return  new ModelAndView(viewPath);
 
 
     }
