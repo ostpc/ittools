@@ -10,6 +10,6 @@ public class RandomTestController {
 
     @GetMapping(value = "/testing")
     public String displayForm() {
-        return "TEXT_TXT/Test2";//Здесь должен быть рандомный файл хтмл
+        return "TEXT_TXT/Javatest2.html";//Здесь должен быть рандомный файл хтмл
     }
 }

@@ -1,10 +1,13 @@
 package ua.org.ostpc.ittools.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+import ua.org.ostpc.ittools.dao.HTMLTestRepository;
+import ua.org.ostpc.ittools.entity.HTMLTest;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -13,9 +16,25 @@ import java.io.FileWriter;
 @RestController
 public class AdminPanelRestController {
 
+    @Autowired  //Save to DB part
+    private HTMLTestRepository HTMLTestRepository;  //Save to DB part
+
+    private void saveHTMLtoDb(String insideHTMLpath){
+
+        String absolutePath=new File("src/main/resources/templates/TEXT_TXT").getAbsolutePath()+"\\"+insideHTMLpath+".html";
+        String fileName;
+        int iLastSlash=insideHTMLpath.lastIndexOf("\\");
+        fileName=insideHTMLpath.substring(iLastSlash+1);
+
+        HTMLTest newTest=new HTMLTest();
+        newTest.setType(fileName.substring(0,fileName.lastIndexOf('t')-3).toLowerCase());
+        newTest.setPath(absolutePath);
+        HTMLTestRepository.save(newTest);
+
+    }  //Save to DB part end
 
     @RequestMapping(value="adminpanel", method= RequestMethod.POST)
-    public static ModelAndView admin(@RequestParam("namePathHTML") String namePathHTML , @RequestParam("question") String question , @RequestParam("answer1") String answer1 , @RequestParam("answer2") String answer2, @RequestParam("answer3") String answer3, @RequestParam("answer4") String answer4, @RequestParam("answer5") String answer5, @RequestParam("boolansver1") String boolansver1, @RequestParam("boolansver2") String boolansver2, @RequestParam("boolansver3") String boolansver3 , @RequestParam("boolansver4") String boolansver4 , @RequestParam("boolansver5") String boolansver5) throws Exception {
+    public ModelAndView admin(@RequestParam("namePathHTML") String namePathHTML , @RequestParam("question") String question , @RequestParam("answer1") String answer1 , @RequestParam("answer2") String answer2, @RequestParam("answer3") String answer3, @RequestParam("answer4") String answer4, @RequestParam("answer5") String answer5, @RequestParam("boolansver1") String boolansver1, @RequestParam("boolansver2") String boolansver2, @RequestParam("boolansver3") String boolansver3 , @RequestParam("boolansver4") String boolansver4 , @RequestParam("boolansver5") String boolansver5) throws Exception {
 
 
 
@@ -44,7 +63,7 @@ public class AdminPanelRestController {
         return new ModelAndView("/AdminPanel");
     }
 
-    public static void newFile(String str, String pathname) throws Exception {
+    private void newFile(String str, String pathname) throws Exception {        //public --> private
         FileWriter nFile = new FileWriter(new File("src/main/resources/templates/TEXT_TXT").getAbsolutePath()+"//"+pathname+".html"+"//",true);
 
 
@@ -55,7 +74,7 @@ public class AdminPanelRestController {
 
 
     @RequestMapping(value="firstparthtml", method= RequestMethod.POST)
-    public static ModelAndView adminh(@RequestParam("nameHTML")String nameHTML ) throws Exception {
+    public ModelAndView adminh(@RequestParam("nameHTML")String nameHTML ) throws Exception {
 
 
         String firstparthtml="<!DOCTYPE html>\n" +
@@ -81,7 +100,7 @@ public class AdminPanelRestController {
 
 
     @RequestMapping(value="lastparthtml", method= RequestMethod.POST)
-    public static ModelAndView adminom(@RequestParam("nameHTML")String nameHTMLEND, @RequestParam("timeHTML")String timeHTML) throws Exception {
+    public ModelAndView adminom(@RequestParam("nameHTML")String nameHTMLEND, @RequestParam("timeHTML")String timeHTML) throws Exception {   //Я убрал тут статик
 
 
 
@@ -161,17 +180,13 @@ public class AdminPanelRestController {
                 "    </body>\n" +
                 "</html>";
 
+
+            saveHTMLtoDb(nameHTMLEND);      //TEST сохраняется в базу данных
+
         newFile(lastparthtml , nameHTMLEND);
 
 
         return new ModelAndView("/AdminPanel");
     }
-
-
-
-
-
-
-
 
 }

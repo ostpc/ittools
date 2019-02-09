@@ -31,13 +31,13 @@ public class FormRestController {
             ModelAndView testMav= new ModelAndView();
 
             Form formToBD=new Form();
-            if(!(fname.equals("") && sname.equals("") && mobilePhone.equals("") && fileName.equals("") && email.equals(""))) {
+            if(!(fname.equals("") || sname.equals("") || mobilePhone.equals("") || fileName.equals("") || email.equals(""))) {
                 formToBD.setResumePath(path);
                 formToBD.setName(fname + sname);
                 formToBD.setEmail(email);
                 formToBD.setLevel(0);
                 formToBD.setMobilePhone(mobilePhone);
-                formToBD.setSpeciality(session.getAttribute("speciality").toString());     //suka blyad' da kak tebya poluchit' to pidorasa ti kusok
+                formToBD.setSpeciality(session.getAttribute("speciality").toString());
 
 
 
