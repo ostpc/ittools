@@ -23,17 +23,21 @@ public class RandomTestRestController extends Form {
     @RequestMapping(value = "runtest", method = RequestMethod.POST)
     private ModelAndView runtest(@RequestParam("testresult") String testresult, HttpSession session) throws Exception {
 
-
+        ModelAndView mav=new ModelAndView("FinalPageAfterTest");
 
         if(Double.parseDouble(testresult) >=0.5) {
             Long longId;
             longId = (long) session.getAttribute("id");
             formRepository.setLevelForForm(1, (long) session.getAttribute("id"));
 
-            return new ModelAndView("FinalPageAfterTest");
+            mav.addObject("color","color: green");
+            mav.addObject("conclusion", "Ожидайте оповещение от нашего оператора :)");
+            return mav;
         }
         else{
-            return new ModelAndView("FinalPageAfterTest");
+            mav.addObject("conclusion", "Оуу... А вы не ошиблись в выборе специальности?");
+            mav.addObject("color","color: red");
+            return mav;
         }
     }
 }
