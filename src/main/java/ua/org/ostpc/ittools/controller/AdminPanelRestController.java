@@ -134,6 +134,7 @@ public class AdminPanelRestController {
                 "        chbx = myform['precipitation[]'],\n" +
                 "        b=0,\n" +
                 "\t\ta=0;\n" +
+                "\t\tvar d = 0 ;\n" +
                 "    for(var i = 0; i < chbx.length; i++)\n" +
                 "\t{\n" +
                 "            \n" +
@@ -151,14 +152,22 @@ public class AdminPanelRestController {
                 "\t\t\t\t}\n" +
                 "\t\t\t\n" +
                 "\t\t\t}\n" +
+                "\t\t\tif(chbx[i].value==\"false\")\n" +
+                "\t\t\t{\n" +
+                "\t\t\tif(chbx[i].checked) \n" +
+                "\t\t\t\t{\n" +
+                "\t\t\t\n" +
+                "\t\t\td+=0.25;\n" +
+                "\t\t\t}\n" +
+                "\t\t\t\n" +
+                "\t\t\t}\n" +
                 "    }\n" +
                 "\t\n" +
-                "\tvar c = (b*100)/a;\n" +
+                "\tvar c = ((b-d)*100)/a;\n" +
                 "\t\n" +
                 "\t\n" +
                 "    myform.testresultstr.value = c+\"%\";\n" +
-                "    myform.testresult.value = parseInt(c)/100;" +
-                "}\n" +
+                "    myform.testresult.value = parseInt(c)/100;}"+
                 "\n" +
                 "\n" +
                 "    function startTimer(duration, display) {\n" +
