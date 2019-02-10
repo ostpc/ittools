@@ -14,6 +14,10 @@ public interface FormRepository  extends CrudRepository<Form, Long> {
 
     List<Form> findByName(String name);
 
+    List<Form> findByLevel(int level);
+
+    List<Form> findById(long id);
+
     @Transactional
     @Modifying
     @Query("update Form form set form.level = :level where form.id = :id")

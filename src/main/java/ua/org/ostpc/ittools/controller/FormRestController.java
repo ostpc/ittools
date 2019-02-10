@@ -26,7 +26,7 @@ public class FormRestController {
         try{
             String fileName=file.getOriginalFilename();
             String path= "C:\\Users\\Pinky\\IdeaProjects\\ittools\\src\\main\\resources\\static\\resumes" + UPLOAD_DIR + "" + File.separator + fileName;    //Change depends of System
-            saveFile(file.getInputStream(), path);
+            path=saveFile(file.getInputStream(), path);
 
             ModelAndView testMav= new ModelAndView();
 
@@ -64,10 +64,23 @@ public class FormRestController {
 
 
 
-    private void saveFile(InputStream inputStream, String path){        //Проверка на существование файла!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    private String saveFile(InputStream inputStream, String path){        //Проверка на существование файла!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         try{
+            String pathWithoutDot=path.substring(0,path.lastIndexOf('.'));
+            String fileType=path.substring((path.lastIndexOf('.')));
+
+
+            int uniq=0;
+            while(new File(pathWithoutDot+uniq+fileType).exists()){
+
+                uniq++;
+            }
+            pathWithoutDot=pathWithoutDot+uniq;
+            path=pathWithoutDot+fileType;
+            //path changing
             File file=new File(path);
+
             try{
                 file.createNewFile();
             }
@@ -88,7 +101,7 @@ public class FormRestController {
             e.printStackTrace();
         }
 
-
+        return path;
     }
 
 }
