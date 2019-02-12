@@ -1,165 +1,180 @@
 
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
 <head>
     <title>Adminpanel</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+    <link  rel="stylesheet" th:href="@{/css/CSSadmin.css}"/>
+    <link rel="stylesheet" href="../static/css/CSSadmin.css"/>
 </head>
-
-    <h1>ADMIN Panel</h1>
-    <div>
-        <h3>Here you can create new test</h3>
-        <h4>Please save file ONLY like "ProgrammingLanguage"+test+num(two numbers) Example: Javatest01 </h4>
-    </div>
+<body>
 
 
-<form method="POST" action="firstparthtml">
+<h1 >ADMIN Panel</h1>
+<div >
+    <h3>Here you can create new test</h3>
+    <h4>Please save file ONLY like "ProgrammingLanguage"+test+num(two numbers) Example: Javatest01 </h4>
+</div><br><br><br>
 
+
+
+
+
+<form method="POST" action="firstparthtml" >
 
     <tr>
         <td><b> NAME NEW HTML FILE </b></td>
 
-        <td><input type="text" name="nameHTML" id="nameHTML"  /></input>  </td>
+        <td><input type="text" name="nameHTML" id="nameHTML" class="thirdinp" /></input>  </td>
 
     </tr>
 
-    <input type="submit"   value="CREATE NEW HTML" />
+    <br><br>
+
+    <input type="submit" class="bttn"  value="CREATE NEW HTML" />
+
 </form>
 
-    <form method="POST" action="adminpanel" >
-
-
-        <tr>
-            <td><b>namePathHTML</b></td>
-
-                <td><input type="text" name="namePathHTML" id="namePathHTML"  /></input>  </td>
-
-        </tr>
 
 
 
-        <tr>
-            <td><b>Question</b></td>
-            <td>
 
-                    <textarea name="question"></textarea>
-
-            </td>
-        </tr>
+<br><br>
 
 
-        <tr>
-            <p>
-                <b>Answer</b>
-            </p>
-            <p>
-
-                <textarea name="answer1"></textarea>
-
-            </p>
-            <br/>
-
-
-                <select name="boolansver1">
-                    <option value="true">true</option>
-                    <option selected="selected" value="false">false</option>
-                </select>
-
-
-        </tr>
-
-        <tr>
-
-            <p><b>Answer</b></p>
-            <p>
-
-                <textarea name="answer2"></textarea>
-
-            </p>
-            <br/>
-
-                <select name="boolansver2">
-                    <option value="true">true</option>
-                    <option selected="selected" value="false">false</option>
-                </select>
-
-
-        </tr>
-
-
-        <tr>
-
-            <p><b>Answer</b></p>
-            <p>
-
-                <textarea name="answer3"></textarea>
-
-            </p>
-            <br/>
-
-                <select name="boolansver3">
-                    <option value="true">true</option>
-                    <option selected="selected" value="false">false</option>
-                </select>
-
-
-        </tr>
-
-
-        <tr>
-
-            <p><b>Answer</b></p>
-            <p>
-
-                <textarea name="answer4"></textarea>
-
-            </p>
-            <br/>
-
-                <select name="boolansver4">
-                    <option value="true">true</option>
-                    <option selected="selected" value="false">false</option>
-                </select>
-
-
-        </tr>
-        <tr>
-
-            <p><b>Answer</b></p>
-            <p>
-
-                <textarea name="answer5"></textarea>
-
-            </p>
-            <br/>
-
-                <select name="boolansver5">
-                    <option  value="true">true</option>
-                    <option selected="selected" value="false">false</option>
-                </select>
-
-
-        </tr>
+<form class = "center" method="POST" action="adminpanel" >
 
 
 
-        <tr>
-            <input   type="submit" value="Create question" onclick="submitForm()"/></td>
-            <td></td>
-        </tr>
+    <p class="namepath1">NAME PATH HTML</p>
+
+    <input id="namepath" type="text" name="namePathHTML"   /></input>
 
 
 
-    </form>
+    <br><br>
 
 
-<form method="POST" action="lastparthtml">
+    <p id="que">Question</p>
+
+
+    <textarea name="question"></textarea>
+
+
+
+    <br>
+
+
+
+    <p class="ans">Answer I</p>
+
+
+
+    <textarea name="answer1"></textarea>
+
+
+    <br>
+
+
+    <select name="boolansver1">
+        <option value="true">true</option>
+        <option selected="selected" value="false">false</option>
+    </select>
+
+
+    <br>
+
+
+
+    <p class="ans">Answer II</p>
+
+
+    <textarea name="answer2"></textarea>
+
+
+    <br>
+
+    <select name="boolansver2">
+        <option value="true">true</option>
+        <option selected="selected" value="false">false</option>
+    </select>
+
+
+    <br>
+
+
+
+
+    <p class="ans">Answer III</p>
+
+
+    <textarea name="answer3"></textarea>
+
+
+    <br>
+
+    <select name="boolansver3">
+        <option value="true">true</option>
+        <option selected="selected" value="false">false</option>
+    </select>
+
+
+    <br>
+
+
+
+
+    <p class="ans">Answer IV</p>
+
+
+    <textarea name="answer4"></textarea>
+
+
+    <br>
+
+    <select name="boolansver4">
+        <option value="true">true</option>
+        <option selected="selected" value="false">false</option>
+    </select>
+
+
+    <br>
+
+    <p class="ans">Answer V</p>
+
+
+    <textarea name="answer5"></textarea>
+
+
+    <br>
+
+    <select name="boolansver5">
+        <option  value="true">true</option>
+        <option selected="selected" value="false">false</option>
+    </select>
+
+
+
+    <br><br>
+
+
+
+    <input   type="submit"  id="secinp" value="Create question" onclick="submitForm()"/></td>
+
+
+
+</form>
+
+
+<form id="forml" method="POST" action="lastparthtml"  >
 
 
     <tr>
         <td><b> THE END </b></td>
 
-        <td><input type="text" name="nameHTML"   /></input>  </td>
+        <input type="text" class="thirdinp"  name="nameHTML"   /></input>
 
     </tr>
 
@@ -167,12 +182,14 @@
     <tr>
         <td><b> TIME </b></td>
 
-        <td><input type="number" name="timeHTML"   /></input>  </td>
+        <input class="thirdinp" type="number" name="timeHTML"   /></input>
 
     </tr>
 
-    <input type="submit"   value="END TEST" />
+    <input type="submit"  class="bttn" value="END TEST" />
 </form>
+</div>
+</body>
 
 
 <script>

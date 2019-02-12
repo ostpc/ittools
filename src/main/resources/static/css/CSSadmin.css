@@ -1,0 +1,250 @@
+
+
+
+
+body {
+    background-color: #333;
+    color: #fff;
+    font-family: 'Roboto', Arial;
+    padding: 10em;
+}
+
+.bttn  {
+
+
+    color: rgba(255,255,255,1);
+    background: none;
+    -moz-border-radius:28px;
+    -webkit-border-radius:28px;
+    border-radius:28px;
+    padding: 1.2em 5em;
+    letter-spacing: 0.35em;
+    font-size: 0.7em;
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+    margin: 1em;
+
+     box-shadow: inset 0 0 1em rgba(0,170,170,0.5), 0 0 1em rgba(0,170,170,0.5);
+     border: #0dd solid 2px;
+ }
+
+.bttn:hover
+{
+     background-color: #0dd;
+     box-shadow: inset 0 0 0 rgba(0,170,170,0.5), 0 0 1.5em rgba(0,170,170,0.7);
+ }
+
+
+.center
+{
+    left: 50%;
+    margin-right: -50%;
+}
+
+textarea
+{
+    margin-top:-16px;
+    z-index: 2;
+width: 394px;
+height: 100px;
+}
+
+
+#que
+{
+    padding-top:10px;
+    font-family: courier new;
+    font-size: 1.1em;
+    text-align: center;
+    width: 400px;
+    height: 30px;
+    color: rgba(255,255,255,1);
+    background-color: #fb5454;
+    box-shadow: inset 0 0 0 rgba(251,81,81,0.4), 0 0 1.5em rgba(251,81,81,0.6);
+}
+
+
+.ans
+{
+    padding-top:10px;
+    font-family: courier new;
+    z-index: 3;
+    font-size: 1.1em;
+    text-align: center;
+    width: 400px;
+    height: 30px;
+    background-color: #0dd;
+    box-shadow: inset 0 0 0 rgba(0,170,170,0.5), 0 0 1.5em rgba(0,170,170,0.7);
+}
+
+#namepath
+{
+    width:398px;
+    height: 30px;
+    background-color:#333;
+    color:#fff;
+    border:#fff solid 1px;
+    font-size:1em;
+    margin-top:-15px;
+}
+
+.namepath1
+{
+
+    width:400px;
+    height: 20px;
+    background: none;
+    padding-top:10px;
+    letter-spacing: 0.35em;
+    font-size: 0.7em;
+    text-align: center;
+     color: rgba(0,0,0,0.8);
+     background-color: #fff;
+     box-shadow: inset 0 0 0 rgba(255,255,255,0.3), 0 0 1.2em rgba(255,255,255,0.5);
+
+}
+
+#secinp{
+
+
+    color: rgba(255,255,255,1);
+    background: none;
+    -moz-border-radius:28px;
+    -webkit-border-radius:28px;
+    border-radius:28px;
+    padding: 1.2em 5em;
+    letter-spacing: 0.35em;
+    font-size: 0.7em;
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+
+
+    box-shadow: inset 0 0 1em rgba(0,170,170,0.5), 0 0 1em rgba(0,170,170,0.5);
+    border: #0dd solid 2px;
+}
+#secinp:hover
+{
+    background-color: #0dd;
+    box-shadow: inset 0 0 0 rgba(0,170,170,0.5), 0 0 1.5em rgba(0,170,170,0.7);
+}
+
+
+.thirdinp{
+
+
+    width:150px;
+    height: 30px;
+    background-color:#333;
+    color:#fff;
+    border:#fff solid 1px;
+    font-size:1em;
+    margin-top:-15px;
+}
+
+.entryform{
+
+    width: 302px;
+    height: 20px;
+    text-align:center;
+    padding-top:10px;
+    z-index: 4;
+    font-family: courier new;
+    background-color:#333;
+    color:#fff;
+    border:#fff solid 1px;
+    font-size:1em;
+    margin-top:-10px;
+
+}
+
+
+
+
+
+#fl_inp{display:none; }
+.fl_upld label{
+    cursor:pointer;
+    background-color: #fb5454;
+    box-shadow: inset 0 0 0 rgba(251,81,81,0.4), 0 0 1.5em rgba(251,81,81,0.6);
+
+    padding:10px 110px;
+    color:#fff;
+    font-weight:lighter;
+    text-align: center;
+
+
+
+}
+.fl_upld label:hover{color: rgba(255,255,255,1);
+    background-color: #0dd;
+    box-shadow: inset 0 0 0 rgba(0,170,170,0.5), 0 0 1.5em rgba(0,170,170,0.7);
+}
+.fl_upld{margin-top:30px;}
+
+
+
+
+
+
+#smalltest{
+
+    margin-top:20px;
+
+}
+
+#nameHTML{
+
+    margin-left: 15px;
+
+}
+
+
+.ansform{
+
+    width:304px;
+    height: 20px;
+
+    padding-top:10px;
+    letter-spacing: 0.35em;
+    font-size: 0.7em;
+    text-align: center;
+    color: rgba(0,0,0,0.8);
+    background-color: #fff;
+    box-shadow: inset 0 0 0 rgba(255,255,255,0.3), 0 0 1.2em rgba(255,255,255,0.5);
+
+}
+
+
+
+#spesialyt{
+
+    width: 308px;
+    height:40px;
+    background-color: #0dd;
+    box-shadow: inset 0 0 0 rgba(0,170,170,0.5), 0 0 1.5em rgba(0,170,170,0.7);
+    padding-top: 5px;
+    padding-left: 7px;
+
+
+
+}
+ #put{
+
+     width: 302px;
+     height: 20px;
+     text-align:center;
+     padding-top:10px;
+     z-index: 4;
+     font-family: courier new;
+     background-color:#333;
+     color:#fff;
+     border:#fff solid 1px;
+     font-size:1em;
+     margin-top:-120px;
+
+ }
+
+ #forml{
+
+     margin-top: 20px;
+
+
+ }
