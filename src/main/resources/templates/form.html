@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="../static/css/CSSadmin.css"/>
 
 </head>
-<body type="text" name="body">
-<form method="POST" action="form" enctype="multipart/form-data">
+<body type="text" name="body" >
 
-    <h2 id="spesialyt">Speciality:  Java developer <b th:text="${session.speciality}"></b><!-- Input param speciality. Get from entry page--></h2><br>
+<div class="bodycen">
+<form method="POST" action="form"  enctype="multipart/form-data">
+
+    <div id="speciality">Speciality:   <b th:text="${session.speciality}"></b></div><!-- Input param speciality. Get from entry page--></h2><br>
 
 
-    <input hidden name="speciality" type ="text" th:text="${session.speciality}">
 
     <p class="ansform">Put your name here:</p><input class="entryform" type="text" name="fname"><br><br>
 
@@ -30,12 +31,13 @@
     </div>
 
     <br>
-<div id="smalltest">
-    Small test:
-         <!--Input param test(html code) -->
+    <div id="smalltest">
+        Small test:
+        <!--Input param test(html code) -->
 
-    <input type="submit" class="bttn" value="Begin test"><br>
-</div>
+        <input type="submit" class="bttn" value="Begin test"><br>
+    </div>
 </form>
+</div>
 </body>
 </html>

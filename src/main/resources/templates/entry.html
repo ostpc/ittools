@@ -4,17 +4,28 @@
     <meta charset="UTF-8">
     <title>OSTPC Work</title>
 
+    <link  rel="stylesheet" th:href="@{/css/CSSadmin.css}"/>
+    <link rel="stylesheet" href="../static/css/CSSadmin.css"/>
 </head>
 <body>
-    <div>
-        <p>Choose your speciality</p></div><br>
 
-        <form action="/entry" method="post">
-            <select name="speciality">    <!--Select menu-->
-                <option>Java developer</option>
-                <option>C++ developer</option>
-            </select>
-            <input type="submit" value="Submit">
+    <div id="entrysp">
+
+        <p id="choosesp">Choose your speciality</p><br>
+
+        <form action="/entry" method="post" class="formic">
+
+            <div class="divselect" id="divsell">
+
+                <select class="select" name="speciality">    <!--Select menu-->
+                    <option>Java developer</option>
+                    <option>C++ developer</option>
+                </select>
+
+            </div>
+
+            <input type="submit" id="submsp" class="bttn" value="Submit">
+
         </form>
 
     </div>
