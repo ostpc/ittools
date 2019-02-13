@@ -1,9 +1,7 @@
 package ua.org.ostpc.ittools.controller;
 
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,7 +22,7 @@ public class RandomTestRestController extends Form {
     @RequestMapping(value = "runtest", method = RequestMethod.POST)
     private ModelAndView runtest(@RequestParam("testresult") String testresult, HttpSession session) throws Exception {
 
-        ModelAndView mav=new ModelAndView("FinalPageAfterTest");
+        ModelAndView mav=new ModelAndView("WinAfterTest");
 
         if(Double.parseDouble(testresult) >=0.5) {
             Long longId;

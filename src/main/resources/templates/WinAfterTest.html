@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="../static/css/CSSadmin.css" rel="stylesheet">
+    <link  rel="stylesheet" th:href="@{/css/CSSadmin.css}"/>
+    <link rel="stylesheet" href="../static/css/CSSadmin.css"/>
 </head>
 <body>
 
 
-<h1>Thank you)))))))))</h1>
+<div id="winner">   YOU ARE WIN   </div>
 <h2 th:style="${color}" th:text="${conclusion}"></h2>
 
 </body>
