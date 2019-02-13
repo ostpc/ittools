@@ -3,20 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Form</title>
+    <link  rel="stylesheet" th:href="@{/css/CSSadmin.css}"/>
+    <link rel="stylesheet" href="../static/css/CSSadmin.css"/>
+
 </head>
 <body type="text" name="body">
 <form method="POST" action="form" enctype="multipart/form-data">
-    <h2>Speciality:  <b th:text="${session.speciality}"></b><!-- Input param speciality. Get from entry page--></h2><br>
+
+    <h2 id="spesialyt">Speciality:  Java developer <b th:text="${session.speciality}"></b><!-- Input param speciality. Get from entry page--></h2><br>
+
+
     <input hidden name="speciality" type ="text" th:text="${session.speciality}">
-    Put your name here:<input type="text" name="fname"><br>
-    Put your surname here:<input type="text" name="sname"><br>
-    Mobile phone:<input type="text" name="mobilePhone"><br>
-    Your Email:<input type="text" name="email"><br>
-    Resume to upload: <input type="file" name="file"><br>
+
+    <p class="ansform">Put your name here:</p><input class="entryform" type="text" name="fname"><br><br>
+
+    <p class="ansform" >Put your surname here:</p><input id="put" class="entryform" type="text" name="sname"><br><br>
+
+    <p class="ansform">Mobile phone:</p><input class="entryform" type="text" name="mobilePhone"><br><br>
+
+    <p class="ansform">Your Email:</p><input class="entryform" type="text" name="email"><br><br>
+
+
+    <div class="fl_upld">
+        <label><input id="fl_inp" type="file" name="file">add resume</label>
+
+    </div>
+
     <br>
-    Now you should answer on a several questions.<br>
-    Small test: <!--Input param test(html code) -->
-    <input type="submit" value="Begin test"><br>
+<div id="smalltest">
+    Small test:
+         <!--Input param test(html code) -->
+
+    <input type="submit" class="bttn" value="Begin test"><br>
+</div>
 </form>
 </body>
 </html>
