@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/XSL/Transform">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link  rel="stylesheet" th:href="@{/css/CSStelegram.css}"/>
+    <link rel="stylesheet" href="../static/css/CSStelegram.css"/>
+</head>
+<body type="text" name="body" >
+
+<div class="bodycen">
+    <form method="POST" action="/telegrampage"  enctype="multipart/form-data" id="msform">
+
+
+
+
+
+        <p class="entryform">Put your name here:</p><input class="entryform" type="text" name="sname"><br><br>
+
+        <p class="entryform" >Put your telegram name here:</p><input id="put" class="entryform" type="text" name="tname"><br><br>
+
+
+
+
+
+
+        <br>
+
+
+            <input type="submit" class="bttn" value="Begin test"><br>
+
+    </form>
+</div>
+</body>
+</html>
