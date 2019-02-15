@@ -7,185 +7,196 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <link  rel="stylesheet" th:href="@{/css/CSSadmin.css}"/>
-    <link rel="stylesheet" href="../static/css/CSSadmin.css"/>
+    <link rel="stylesheet" href="../css/CSS.css"/>
 </head>
 <body>
-
-
-<h1 >ADMIN Panel</h1>
-<div >
-    <h3>Here you can create new test</h3>
-    <h4>Please save file ONLY like "ProgrammingLanguage"+test+num(two numbers) Example: Javatest01 </h4>
-</div><br><br><br>
-
-
-
-
-
-<form method="POST" action="firstparthtml" >
-
-
-        <td><b> NAME NEW HTML FILE </b></td>
-
-        <td><input type="text" name="nameHTML" id="nameHTML" class="thirdinp" /></input>  </td>
-
-
-
-    <br><br>
-
-    <input type="submit" class="bttn"  value="CREATE NEW HTML" />
-
-</form>
-
-
+<div id="logoad">
+    <div id="part1">
+        <h1 >AdminPanel</h1>
+    </div>
+    <div id="some">
+        <p>Here you can create new test</p>
+    </div>
+</div>
 <br><br>
 
-
-<form class = "center" method="POST" action="adminpanel" >
-
-
-
-    <p class="namepath1">NAME PATH HTML</p>
-
-    <input id="namepath" type="text" name="namePathHTML"   /></input>
+<div id="alld">
+    <div id="part2">
 
 
+        <h4>Please save file only like "ProgrammingLanguage"+test+num(two numbers) Example: Javatest01 </h4>
 
+        <form method="POST" action="firstparthtml" >
+
+
+            <td><b> NAME NEW HTML FILE </b></td>
+
+            <td><input type="text" name="nameHTML" id="nameHTML" class="thirdinp" /></input>  </td>
+
+
+
+            <br><br>
+
+            <input type="submit" class="bttn"  value="CREATE NEW HTML" />
+
+        </form>
+
+    </div>
     <br><br>
-
-
-    <p id="que">Question</p>
-
-
-    <textarea name="question"></textarea>
-
-
-
-    <br>
-
-
-
-    <p class="ans">Answer I</p>
-
-
-
-    <textarea name="answer1"></textarea>
-
-
-    <br>
-
-<div class="divselect">
-
-    <select name="boolansver1">
-        <option value="true">true</option>
-        <option selected="selected" value="false">false</option>
-    </select>
-
-</div>
-    <br>
-
-
-
-    <p class="ans">Answer II</p>
-
-
-    <textarea name="answer2"></textarea>
-
-
-    <br>
-    <div class="divselect">
-    <select name="boolansver2">
-        <option value="true">true</option>
-        <option selected="selected" value="false">false</option>
-    </select>
-    </div>
-
-    <br>
-
-
-
-
-    <p class="ans">Answer III</p>
-
-
-    <textarea name="answer3"></textarea>
-
-
-    <br>
-    <div class="divselect">
-    <select name="boolansver3">
-        <option value="true">true</option>
-        <option selected="selected" value="false">false</option>
-    </select>
-    </div>
-
-    <br>
-
-
-
-
-    <p class="ans">Answer IV</p>
-
-
-    <textarea name="answer4"></textarea>
-
-
-    <br>
-    <div class="divselect">
-    <select name="boolansver4">
-        <option value="true">true</option>
-        <option selected="selected" value="false">false</option>
-    </select>
-    </div>
-
-    <br>
-
-    <p class="ans">Answer V</p>
-
-
-    <textarea name="answer5"></textarea>
-
-
-    <br>
-    <div class="divselect">
-    <select name="boolansver5">
-        <option  value="true">true</option>
-        <option selected="selected" value="false">false</option>
-    </select>
-    </div>
-
 
     <br><br>
 
 
 
-    <input   type="submit"  id="secinp" value="Create question" onclick="submitForm()"/></td>
+    <div id="part3">
+        <form class = "center" method="POST" action="adminpanel" >
 
 
 
-</form>
+            <p class="namepath1">NAME PATH HTML</p>
 
 
-<form id="forml" method="POST" action="lastparthtml"  >
+            <input id="namepath" type="text" name="namePathHTML"   /></input>
 
 
-    <tr>
-        <td><b> THE END </b></td>
 
-        <input type="text" class="thirdinp"  name="nameHTML"   /></input>
-
-    </tr>
+            <br><br>
 
 
-    <tr>
-        <td><b> TIME </b></td>
+            <p id="que">Question</p>
 
-        <input class="thirdinp" type="number" name="timeHTML"   /></input>
+            <textarea name="question"></textarea>
 
-    </tr>
 
-    <input type="submit"  class="bttn" value="END TEST" />
-</form>
+            <br>
+
+
+
+            <p class="ans">Answer I</p>
+
+
+
+            <textarea name="answer1"></textarea>
+
+
+
+            <br>
+
+            <div class="divselect">
+
+                <select name="boolansver1">
+                    <option value="true">true</option>
+                    <option selected="selected" value="false">false</option>
+                </select>
+
+            </div>
+
+
+            <br>
+
+
+
+            <p class="ans">Answer II</p>
+
+
+            <textarea name="answer2"></textarea>
+
+
+            <br>
+            <div class="divselect">
+                <select name="boolansver2">
+                    <option value="true">true</option>
+                    <option selected="selected" value="false">false</option>
+                </select>
+            </div>
+
+            <br>
+
+
+
+
+            <p class="ans">Answer III</p>
+
+
+            <textarea name="answer3"></textarea>
+
+
+            <br>
+            <div class="divselect">
+                <select name="boolansver3">
+                    <option value="true">true</option>
+                    <option selected="selected" value="false">false</option>
+                </select>
+            </div>
+
+            <br>
+
+
+
+
+            <p class="ans">Answer IV</p>
+
+
+            <textarea name="answer4"></textarea>
+
+
+            <br>
+            <div class="divselect">
+                <select name="boolansver4">
+                    <option value="true">true</option>
+                    <option selected="selected" value="false">false</option>
+                </select>
+            </div>
+
+            <br>
+
+            <p class="ans">Answer V</p>
+
+
+            <textarea name="answer5"></textarea>
+
+
+            <br>
+            <div class="divselect">
+                <select name="boolansver5">
+                    <option  value="true">true</option>
+                    <option selected="selected" value="false">false</option>
+                </select>
+            </div>
+
+
+            <br><br>
+
+
+
+            <input   type="submit"  id="secinp" value="Create question" onclick="submitForm()"/></td>
+
+
+
+        </form>
+    </div>
+    <div id="part4">
+        <form id="forml" method="POST" action="lastparthtml"  >
+
+
+            <tr>
+                <td><b> THE END </b></td>
+
+                <input type="text" class="thirdinp"  name="nameHTML"   /></input>
+
+            </tr>
+
+
+            <tr>
+                <td><b> TIME </b></td>
+
+                <input class="forthinp" type="number" name="timeHTML"   /></input>
+
+            </tr>
+
+            <input type="submit"  id="theend" value="END TEST" />
+        </form>
+    </div>
 </div>
 </body>
 

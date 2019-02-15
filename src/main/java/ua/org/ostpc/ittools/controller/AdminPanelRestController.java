@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import ua.org.ostpc.ittools.dao.HTMLTestRepository;
 import ua.org.ostpc.ittools.entity.HTMLTest;
-
+import java.util.UUID;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -37,8 +37,11 @@ public class AdminPanelRestController {
     @RequestMapping(value="adminpanel", method= RequestMethod.POST)
     public ModelAndView admin(@RequestParam("namePathHTML") String namePathHTML , @RequestParam("question") String question , @RequestParam("answer1") String answer1 , @RequestParam("answer2") String answer2, @RequestParam("answer3") String answer3, @RequestParam("answer4") String answer4, @RequestParam("answer5") String answer5, @RequestParam("boolansver1") String boolansver1, @RequestParam("boolansver2") String boolansver2, @RequestParam("boolansver3") String boolansver3 , @RequestParam("boolansver4") String boolansver4 , @RequestParam("boolansver5") String boolansver5) throws Exception {
 
-
-
+        UUID forid1= UUID.randomUUID();
+        UUID forid2= UUID.randomUUID();
+        UUID forid3= UUID.randomUUID();
+        UUID forid4= UUID.randomUUID();
+        UUID forid5= UUID.randomUUID();
 
 
 
@@ -48,32 +51,32 @@ public class AdminPanelRestController {
                 "\n" +
                 "            <p>"+question+"</p><br>\n" +
                 "\n" +
-                "            <input  id =\""+answer1+"\" type=\"checkbox\" name=\"precipitation[]\" value=\""+boolansver1+"\">\n" +
-                "            <label for=\""+answer1+"\" >"+answer1+"</label>\n" +
+                "            <input  id =\""+forid1+"\" type=\"checkbox\" name=\"precipitation[]\" value=\""+boolansver1+"\">\n" +
+                "            <label for=\""+forid1+"\" >"+answer1+"</label>\n" +
                 "\n" +
                 "            <br>\n" +
                 "            <br>" +
                 "" +
-                " <input  id = \""+answer2+"\" type=\"checkbox\" name=\"precipitation[]\" value=\""+boolansver2+"\">\n" +
-                "            <label for=\""+answer2+"\" >"+answer2+"</label>\n" +
+                " <input  id = \""+forid2+"\" type=\"checkbox\" name=\"precipitation[]\" value=\""+boolansver2+"\">\n" +
+                "            <label for=\""+forid2+"\" >"+answer2+"</label>\n" +
                 "\n" +
                 "            <br>\n" +
                 "            <br>" +
                 "" +
-                " <input  id = \""+answer3+"\" type=\"checkbox\" name=\"precipitation[]\" value=\""+boolansver3+"\">\n" +
-                "            <label for=\""+answer3+"\" >"+answer3+"</label>\n" +
+                " <input  id = \""+forid3+"\" type=\"checkbox\" name=\"precipitation[]\" value=\""+boolansver3+"\">\n" +
+                "            <label for=\""+forid3+"\" >"+answer3+"</label>\n" +
                 "\n" +
                 "            <br>\n" +
                 "            <br>" +
                 "" +
-                "<input  id = \""+answer4+"\" type=\"checkbox\" name=\"precipitation[]\" value=\""+boolansver4+"\">\n" +
-                "            <label for=\""+answer4+"\" >"+answer4+"</label>\n" +
+                "<input  id = \""+forid4+"\" type=\"checkbox\" name=\"precipitation[]\" value=\""+boolansver4+"\">\n" +
+                "            <label for=\""+forid4+"\" >"+answer4+"</label>\n" +
                 "\n" +
                 "            <br>\n" +
                 "            <br>" +
                 "" +
-                "<input  id = \""+answer5+"\" type=\"checkbox\" name=\"precipitation[]\" value=\""+boolansver5+"\">\n" +
-                "            <label for=\""+answer5+"\" >"+answer5+"</label>\n" +
+                "<input  id = \""+forid5+"\" type=\"checkbox\" name=\"precipitation[]\" value=\""+boolansver5+"\">\n" +
+                "            <label for=\""+forid5+"\" >"+answer5+"</label>\n" +
                 "\n" +
                 "            <br>\n" +
                 "            <br> </div>\n" +
