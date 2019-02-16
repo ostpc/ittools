@@ -9,7 +9,7 @@ public class Telegramus {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)//Sequence?
     private long id;
 
 
