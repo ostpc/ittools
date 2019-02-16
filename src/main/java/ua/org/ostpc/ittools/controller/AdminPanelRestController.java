@@ -43,10 +43,7 @@ public class AdminPanelRestController {
         UUID forid4= UUID.randomUUID();
         UUID forid5= UUID.randomUUID();
 
-
-
-
-
+        
         String testhtmlform ="<div >\n" +
                 "\n" +
                 "            <p>"+question+"</p><br>\n" +
