@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sql="http://java.sun.com/xml/ns/j2ee" xmlns:c="">
+
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title>Employee</title>
+</head>
+<body>
+
+<form id="form" role="form" th:action="@{/title/create}" method="post" th:object="${employee}">
+    <div>
+        <label for="fullName">FullName</label>
+
+        <input type="text" id="fullName" name="FullName" th:fullName1="${employee.fullName}"/>
+    </div>
+    <div>
+        <label for="salary">Salary</label>
+        <input type="text" id="salary" name="salary" th:salary1="${employee.salary}"/>
+    </div>
+    <div>
+        <button type="submit">Сохранить</button>
+        <button type="reset">Очистить</button>
+    </div>
+
+</form>
+
+<form id="formD" role="form" th:action="@{/title/delete}" method="post" th:object="${employee}">
+    <div>
+        <label for="fullName">ID</label>
+
+        <input type="text" id="delete" name="Id delete" th:id="${employee.id}"/>
+    </div>
+    <div>
+        <button type="submit">Удалить</button>
+        <button type="reset">Очистить</button>
+<!--
+        <a th:href="@{/title/delete(personId=${employee.id})}" class="btn btn-danger">Delete</a>
+-->
+    </div>
+
+</form>
+</body>
+</html>

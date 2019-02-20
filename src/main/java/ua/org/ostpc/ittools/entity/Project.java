@@ -1,9 +1,30 @@
 package ua.org.ostpc.ittools.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Project {
+
+
+    public List<Tasks> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Tasks> tasks) {
+        this.tasks = tasks;
+    }
+
+    @OneToMany(mappedBy="project")
+    private List<Tasks> tasks;
+    // private Set<Tasks> tasks = new HashSet<>();
+
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "project")
+    private Set<Employees> employees = new HashSet<>();
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -70,4 +91,20 @@ public class Project {
     public void setProjectVersion(double projectVersion) {
         this.projectVersion = projectVersion;
     }
+
+    public Set<Employees> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Set<Employees> employees) {
+        this.employees = employees;
+    }
+
+/*    public Set<Tasks> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(Set<Tasks> tasks) {
+        this.tasks = tasks;
+    }*/
 }
