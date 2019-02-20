@@ -26,23 +26,25 @@ public class StaffController {
 
         for(int i=0;i<people.size();i++){
             Form formNow=people.get(i);
-            peopleHTML=peopleHTML+
-                    "<br>\n" +
-                    "<div class=\"allhr\">\n" +
-                    "    <form name=\"hrForm\"method=\"POST\"  enctype=\"multipart/form-data\">\n" +
-                    "        <input readonly name=\"id\" class=\"resutf\"  type=\"text\" value=\""+formNow.getId()+"\"></input>\n" +
-                    "        <p class=\"namef\" text=\"\">"+formNow.getName()+"</p>\n" +
-                    "        <p class=\"mobf\" text=\"\">"+formNow.getMobilePhone()+"</p>\n" +
-                    "        <p class=\"emf\" text=\"\">"+formNow.getEmail()+"</p>\n" +
-                    "        <input type=\"submit\" class=\"hhh\" formaction=\"/hrShowResume\" value=\"Show resume\">\n" +
-                    "        <br>\n" +
-                    "<div class=\"menubut\">\n"+
-                    "        <input type=\"submit\" class=\"bttnwhite\" formaction=\"/hrKeep\" value=\"Keep\">\n" +
-                    "        <input type=\"submit\" class=\"bttnblue\" formaction=\"/hrAccept\" value=\"Accept\">\n" +
-                    "        <input type=\"submit\"  class=\"bttnred\" formaction=\"/hrDecline\" value=\"Decline\">\n" +
-                    "</div>\n"+
-                    "    </form>\n" +
-                    "</div>\n";
+            if(formNow.getUserId()==null) {
+                peopleHTML = peopleHTML +
+                        "<br>\n" +
+                        "<div class=\"allhr\">\n" +
+                        "    <form name=\"hrForm\"method=\"POST\"  enctype=\"multipart/form-data\">\n" +
+                        "        <input readonly name=\"id\" class=\"resutf\"  type=\"text\" value=\"" + formNow.getId() + "\"></input>\n" +
+                        "        <p class=\"namef\" text=\"\">" + formNow.getName() + "</p>\n" +
+                        "        <p class=\"mobf\" text=\"\">" + formNow.getMobilePhone() + "</p>\n" +
+                        "        <p class=\"emf\" text=\"\">" + formNow.getEmail() + "</p>\n" +
+                        "        <input type=\"submit\" class=\"hhh\" formaction=\"/hrShowResume\" value=\"Show resume\">\n" +
+                        "        <br>\n" +
+                        "<div class=\"menubut\">\n" +
+                        "        <input type=\"submit\" class=\"bttnwhite\" formaction=\"/hrKeep\" value=\"Keep\">\n" +
+//                    "        <input type=\"submit\" class=\"bttnblue\" formaction=\"/hrAccept\" value=\"Accept\">\n" +
+//                    "        <input type=\"submit\"  class=\"bttnred\" formaction=\"/hrDecline\" value=\"Decline\">\n" +
+                        "</div>\n" +
+                        "    </form>\n" +
+                        "</div>\n";
+            }
         }
 
         mav.addObject("people",peopleHTML);
@@ -63,23 +65,25 @@ public class StaffController {
 
         for(int i=0;i<people.size();i++){
             Form formNow=people.get(i);
-            peopleHTML=peopleHTML+
-                    "<br>\n" +
-                    "<div class=\"allhr\">\n" +
-                    "    <form name=\"specialistForm\"method=\"POST\" enctype=\"multipart/form-data\">\n" +
-                    "        <input readonly name=\"id\" class=\"resutf\"  type=\"text\" value=\""+formNow.getId()+"\"></input>\n" +
-                    "        <p class=\"namef\" text=\"\">"+formNow.getName()+"</p>\n" +
-                    "        <p class=\"mobf\" text=\"\">"+formNow.getMobilePhone()+"</p>\n" +
-                    "        <p class=\"emf\" text=\"\">"+formNow.getEmail()+"</p>\n" +
-                    "        <input type=\"submit\" class=\"hhh\" formaction=\"/specShowResume\" value=\"Show resume\">\n" +
-                   " <br>\n" +
-            "<div class=\"menubut\">\n"+
-                    "        <input type=\"submit\" class=\"bttnwhite\" formaction=\"/specKeep\" value=\"Keep\">\n" +
-                    "        <input type=\"submit\" class=\"bttnblue\"  formaction=\"/specAccept\" value=\"Accept\">\n" +
-                    "        <input type=\"submit\" class=\"bttnred\" formaction=\"/specDecline\" value=\"Decline\">\n" +
-                    "</div>\n"+
-                    "    </form>\n" +
-                    "</div>\n";
+            if(formNow.getUserId()==null) {
+                peopleHTML = peopleHTML +
+                        "<br>\n" +
+                        "<div class=\"allhr\">\n" +
+                        "    <form name=\"specialistForm\"method=\"POST\" enctype=\"multipart/form-data\">\n" +
+                        "        <input readonly name=\"id\" class=\"resutf\"  type=\"text\" value=\"" + formNow.getId() + "\"></input>\n" +
+                        "        <p class=\"namef\" text=\"\">" + formNow.getName() + "</p>\n" +
+                        "        <p class=\"mobf\" text=\"\">" + formNow.getMobilePhone() + "</p>\n" +
+                        "        <p class=\"emf\" text=\"\">" + formNow.getEmail() + "</p>\n" +
+                        "        <input type=\"submit\" class=\"hhh\" formaction=\"/specShowResume\" value=\"Show resume\">\n" +
+                        " <br>\n" +
+                        "<div class=\"menubut\">\n" +
+                        "        <input type=\"submit\" class=\"bttnwhite\" formaction=\"/specKeep\" value=\"Keep\">\n" +
+//                    "        <input type=\"submit\" class=\"bttnblue\"  formaction=\"/specAccept\" value=\"Accept\">\n" +
+//                    "        <input type=\"submit\" class=\"bttnred\" formaction=\"/specDecline\" value=\"Decline\">\n" +
+                        "</div>\n" +
+                        "    </form>\n" +
+                        "</div>\n";
+            }
         }
 
         mav.addObject("people",peopleHTML);

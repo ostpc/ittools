@@ -31,11 +31,9 @@ public class Form {
     private  String speciality;
 
     @Column
-    private long userId;
+    private Long userId;
 
     //Getters an setters
-
-
     public long getId() {
         return id;
     }
@@ -92,11 +90,11 @@ public class Form {
         this.speciality = speciality;
     }
 
-    public long getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 }

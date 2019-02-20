@@ -18,9 +18,16 @@ public interface FormRepository  extends CrudRepository<Form, Long> {
 
     List<Form> findById(long id);
 
+    List<Form> findByUserId(Long userId);
+
     @Transactional
     @Modifying
     @Query("update Form form set form.level = :level where form.id = :id")
     void setLevelForForm(@Param("level") Integer level, @Param("id") Long id);
+
+    @Transactional
+    @Modifying
+    @Query("update Form form set form.userId = :userId where form.id = :id")
+    void setUserIdForForm(@Param("userId") Long userId, @Param("id") Long id);
 
 }
