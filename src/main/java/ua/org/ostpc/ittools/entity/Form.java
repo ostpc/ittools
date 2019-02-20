@@ -30,6 +30,9 @@ public class Form {
     @Column(nullable = false)
     private  String speciality;
 
+    @Column
+    private long userId;
+
     //Getters an setters
 
 
@@ -87,5 +90,13 @@ public class Form {
 
     public void setSpeciality(String speciality) {
         this.speciality = speciality;
+    }
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 }
