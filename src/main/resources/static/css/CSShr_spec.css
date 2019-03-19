@@ -1,12 +1,12 @@
 body{
 
     background-color: #333;
-
+    outline:none;
 
 }
 .bttnblue{
 
-
+    outline:none;
     color: rgba(255,255,255,1);
     background: none;
     -moz-border-radius:28px;
@@ -24,7 +24,7 @@ body{
 }
 
 .bttnblue:hover
-{
+{outline:none;
     background-color: #0dd;
     box-shadow: inset 0 0 0 rgba(0,170,170,0.5), 0 0 1.5em rgba(0,170,170,0.7);
 
@@ -38,7 +38,7 @@ body{
 
 .bttnred{
 
-
+    outline:none;
     color: rgba(255,255,255,1);
     background: none;
     -moz-border-radius:28px;
@@ -57,7 +57,7 @@ body{
 }
 
 .bttnred:hover
-{
+{outline:none;
     background-color: #fb5454;
     box-shadow: inset 0 0 0 rgba(251,81,81,0.4), 0 0 1.5em rgba(251,81,81,0.6);
 
@@ -69,7 +69,7 @@ body{
 
 
 
-
+    outline:none;
     color: rgba(255,255,255,1);
     background: none;
     -moz-border-radius:28px;
@@ -87,7 +87,7 @@ body{
 }
 
 .bttnwhite:hover
-{
+{outline:none;
     background-color: #fff;
     box-shadow: inset 0 0 0 rgba(255,255,255,0.3), 0 0 1.2em rgba(255,255,255,0.5);
     color:black;
@@ -101,7 +101,7 @@ body{
 
 
 .resutf{
-
+    outline:none;
     font-weight: bold;
     color:#fff;
     margin-top: 8px;
@@ -118,7 +118,7 @@ body{
 }
 
 .namef{
-
+    outline:none;
     border: 2px solid #fff;
     box-shadow: inset 0 0 0 rgba(255,255,255,0.3), 0 0 1.2em rgba(255,255,255,0.5);
 
@@ -134,6 +134,7 @@ body{
 }
 
 .mobf{
+    outline:none;
 
     border: 2px solid #fff;
     box-shadow: inset 0 0 0 rgba(255,255,255,0.3), 0 0 1.2em rgba(255,255,255,0.5);
@@ -165,12 +166,12 @@ body{
     width:300px;
     margin-left: 664px;
     margin-top: -71px;
-
+    outline:none;
 }
 .hhh{
 
 
-
+    outline:none;
     color: rgba(255,255,255,1);
     background: none;
     -moz-border-radius:28px;
@@ -193,7 +194,7 @@ body{
 
 
 .hhh:hover
-{
+{outline:none;
     background-color: #fb5454 ;
     box-shadow: inset 0 0 0 rgba(255,255,255,0.3), 0 0 1.2em rgba(255,255,255,0.5);
 
@@ -202,14 +203,14 @@ body{
 
 
 .menubut{margin-left: 180px;
-
+    outline:none;
     margin-top:-55px;
 }
 
 
 .allhr{
 
-
+    outline:none;
     display: flex;
     justify-content: center;
 
