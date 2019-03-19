@@ -12,7 +12,6 @@ import org.springframework.web.multipart.support.StandardServletMultipartResolve
 
 @EnableJpaRepositories("ua.org.ostpc.ittools.dao")
 @EntityScan("ua.org.ostpc.ittools.entity")
-@ComponentScan("ua.org.ostpc.ittools.components")
 @SpringBootApplication
 public class IttoolsApplication {
 
