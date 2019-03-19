@@ -87,9 +87,42 @@ public class StaffController {
         }
 
         mav.addObject("people",peopleHTML);
-
         return mav;
-
-
     }
+
+
+
+    @GetMapping("staff")
+    public ModelAndView diplayStaff() {
+
+        ModelAndView mav = new ModelAndView("staffPage");
+        String staffHTML="";
+
+        List<Form> staff= formRepository.findByLevel(3);
+
+        for(Form formNow:staff){
+            staffHTML= staffHTML + "<br>\n" +
+                    "<div class=\"allhr\">\n" +
+                    "    <form name=\"specialistForm\"method=\"POST\" enctype=\"multipart/form-data\">\n" +
+                    "        <input readonly name=\"id\" class=\"resutf\"  type=\"text\" value=\"" + formNow.getId() + "\"></input>\n" +
+                    "        <p class=\"namef\" text=\"\">" + formNow.getName() + "</p>\n" +
+                    "        <p class=\"mobf\" text=\"\">" + formNow.getMobilePhone() + "</p>\n" +
+                    "        <p class=\"emf\" text=\"\">" + formNow.getEmail() + "</p>\n" +
+                    "        <input type=\"submit\" class=\"hhh\" formaction=\"/specShowResume\" value=\"Show resume\">\n" +
+                    " <br>\n" +
+                    "    </form>\n" +
+                    "</div>\n";
+        }
+        mav.addObject("staff",staffHTML);
+        return mav;
+    }
+
+
+
+
+
+
+
+
+
 }

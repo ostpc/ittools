@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
@@ -11,6 +12,7 @@ import org.springframework.web.multipart.support.StandardServletMultipartResolve
 
 @EnableJpaRepositories("ua.org.ostpc.ittools.dao")
 @EntityScan("ua.org.ostpc.ittools.entity")
+@ComponentScan("ua.org.ostpc.ittools.components")
 @SpringBootApplication
 public class IttoolsApplication {
 
